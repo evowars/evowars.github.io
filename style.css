@@ -10,13 +10,13 @@ a {
 }
 
 :root {
-  --bg-color: #131422;
-  --bg-header-top: #26202a;
+  --bg-color: #000000;
+  --bg-header-top: #000000;
   --width-content: 1250px;
   --column-size: 120px;
   --bg-header-color: #000000;
   --text-color: #ffffff;
-  --footer-bg: #000;
+  --footer-bg: #000000;
 }
 
 * {
@@ -64,7 +64,7 @@ header.fixed {
   left: 0;
   right: 0;
   z-index: 3;
-  box-shadow: 0px -20px 20px 0 #ffffff52;
+  box-shadow: 0 1px 20px 0 #ffffff52;
 }
 
 label.logo {
@@ -84,9 +84,9 @@ nav {
 
 nav ul {
   float: left;
-  width: calc(100% - 50px);
+  width: calc(100% - 200px);
   margin-left: 40px;
-  display: contents;
+  display: flex;
   justify-content: space-around;
 }
 
@@ -102,15 +102,15 @@ nav ul li a {
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  padding: 15px;
-  border-radius: 120px;
-  background-color: rgba(6 13 37);
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgb(0, 0, 0);
 }
 
 nav ul li a:hover {
   transition: 0.3s;
   color: #fff;
-  box-shadow: 0 0 20px 20px #1fe2396e;
+  box-shadow: 0 0 20px 20px #08a7236e;
 }
 
 .togglebtn {
@@ -181,24 +181,6 @@ nav ul li a:hover {
   width: 50%;
 }
 
-.more-games {
-  padding: 30px 25px 0;
-  display: grid;
-}
-.item-more-games,
-.list-item {
-  float: left;
-  width: 15%;
-}
-
-.item-more-games {
-  border: 3px solid #03a9f4;
-  border-radius: 10px;
-  overflow: hidden;
-  position: top;
-  height: 200px;
-}
-
 .list-item {
   padding: 15px 15px 0;
   display: grid;
@@ -213,7 +195,7 @@ nav ul li a:hover {
 }
 
 .item {
-  border: 3px solid #03a9f4;
+  border: 3px solid #ffffff;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -252,7 +234,7 @@ nav ul li a:hover {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background: rgba(3, 169, 244, 0.8);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .list-item .item .content .heading-game {
@@ -298,12 +280,12 @@ nav ul li a:hover {
 }
 
 .game-content {
-  float: center;
-  width: 98%;
+  float: left;
+  width: 100%;
   min-height: 300px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  padding: 100px;
+  padding: 20px;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -322,16 +304,16 @@ nav ul li a:hover {
   width: 100%;
   margin-top: 30px;
   display: grid;
-  grid-column-start: 3;
-  grid-template-rows: repeat(5, var(--column-size));
-  grid-template-columns: repeat(10, var(--column-size));
+  grid-column-start: 2;
+  grid-template-rows: repeat(6, var(--column-size));
+  grid-template-columns: repeat(12, var(--column-size));
   grid-gap: 15px;
 }
 
 .game-center {
   position: relative;
   height: 100%;
-  width: 135%;
+  width: 100%;
   overflow: hidden;
   display: grid;
   grid-column: 1 / span 8;
@@ -426,11 +408,39 @@ nav ul li a:hover {
 }
 
 .game-desc {
-  padding: 30px 25px 0;
-  display: Grid;
+  float: left;
   width: 100%;
+  margin-top: 30px;
   color: #fff;
-  line-height: 40px;
+}
+.game-desc1 {
+  float: left;
+  width: 100%;
+  margin-top: 30px;
+  color: #fff;
+}
+.game-desc1-left {
+  float: left;
+  width: 60%;
+}
+
+.game-desc-left {
+  float: left;
+  width: 100%;
+}
+
+.game-desc-right {
+  float: right;
+  width: 30%;
+  height: auto;
+}
+
+.game-desc-right .box-categories .box-games-title {
+  color: #fff;
+}
+
+.game-desc-right .list-categories-home {
+  grid-template-columns: repeat(1, 1fr);
 }
 
 .game-description {
@@ -1621,7 +1631,7 @@ div#gameLoad.fullscreen {
   }
 
   .container {
-    width: calc(100%);
+    width: calc(100% - 20px);
   }
 
   .heading {
@@ -1913,12 +1923,41 @@ div#gameLoad.fullscreen {
     margin-top: 15px;
   }
 
+  .list-game .game-item {
+    width: calc((100vw - 60px) / 3);
+    height: calc((100vw - 60px) / 3);
+    display: block;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
   .list-item .item:nth-child(3n) {
     margin-right: 10px;
   }
 
   .list-item .item:nth-child(2n) {
     margin-right: 0;
+  }
+
+  .recommend-title {
+    opacity: 1;
+    font-size: 13px;
+    padding: 5px;
+    line-height: 18px;
+  }
+
+  .news-detail {
+    padding: 0;
+  }
+
+  .list-categories-home {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .game-desc-left,
+  .game-desc-right {
+    width: 100%;
   }
 
   .box-games .box-games-title,
