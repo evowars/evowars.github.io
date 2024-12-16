@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preload" href="./style.css" as="style" />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="shortcut icon" href="/img/Evo wars nho.png" />
+    <link rel="shortcut icon" href="/img/nho (1).png" />
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEMTGVRB8W"></script>
 <script>
@@ -24,6 +24,370 @@
     font-size: 1.5rem;
     color: rgb(255, 255, 255);
     font-weight: bold;
+  }
+
+  .game-desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+  }
+
+  .game-desc-left {
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .box-content {
+    background: linear-gradient(135deg, #1a1c2c 0%, #2b2e4a 100%);
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 30px;
+    border: 3px solid #2b2e4a;
+    box-shadow: 0 0 25px rgba(43, 46, 74, 0.3);
+    animation: gamePulse 4s ease-in-out infinite;
+  }
+
+  /* Hiệu ứng hex pattern */
+  .box-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 17.32v34.64L30 60 0 51.96V17.32L30 0zm0 5L5 19.32v30.64L30 55l25-5.04V19.32L30 5z' fill='%232b2e4a' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.3;
+    animation: patternMove 20s linear infinite;
+  }
+
+  .game-title {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #2b2e4a,
+                 2px 2px 0px #2b2e4a;
+    animation: titleGlow 2s ease-in-out infinite;
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Hiệu ứng gaming corners */
+  .game-title::before,
+  .game-title::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ff3864;
+  }
+
+  .game-title::before {
+    top: -10px;
+    left: -10px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  .game-title::after {
+    bottom: -10px;
+    right: -10px;
+    border-left: 0;
+    border-top: 0;
+  }
+
+  .highlight-text {
+    color: #e1e1e6;
+    line-height: 1.8;
+    position: relative;
+    padding: 10px;
+    background: rgba(43, 46, 74, 0.05);
+    border-left: 3px solid #2b2e4a;
+    margin: 15px 0;
+    transition: all 0.3s ease;
+  }
+
+  .highlight-text:hover {
+    transform: translateX(10px);
+    background: rgba(43, 46, 74, 0.1);
+  }
+
+  .game-name {
+    color: #60a5fa;
+    font-weight: bold;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .game-video {
+    margin: 1rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .game-video iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    max-height: 338px;
+  }
+
+  .info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .info-box {
+    background: rgba(26, 28, 44, 0.95);
+    border: 2px solid #2b2e4a;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 56, 100, 0.1), transparent);
+    animation: shine 3s infinite;
+  }
+
+  .info-box h2 {
+    color: #60a5fa;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  .info-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .info-box li {
+    color: #e5e7eb;
+    margin: 0.8rem 0;
+    line-height: 1.6;
+  }
+
+  .info-box p {
+    color: #e5e7eb;
+    line-height: 1.6;
+  }
+
+  .similar-games {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .similar-games a {
+    background: linear-gradient(45deg, #ff3864, #ff5678);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .similar-games a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 56, 100, 0.4);
+  }
+
+  .similar-games a::before {
+    content: '▶';
+    margin-right: 8px;
+    font-size: 0.8em;
+  }
+
+  .tags-section {
+    margin-top: 2rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    background: #2b2e4a;
+    color: #e1e1e6;
+    border: 1px solid #3d4163;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tag:hover {
+    background: #3d4163;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(43, 46, 74, 0.4);
+  }
+
+  strong {
+    color: #60a5fa;
+  }
+
+  @media (max-width: 768px) {
+    .game-desc {
+      padding: 15px;
+    }
+    
+    .box-content {
+      padding: 20px;
+    }
+    
+    .game-title {
+      font-size: 2rem;
+    }
+    
+    .highlight-text {
+      font-size: 1.1rem;
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+
+  @keyframes glow {
+    from {
+        text-shadow: 0 0 5px #60a5fa, 0 0 10px #60a5fa;
+    }
+    to {
+        text-shadow: 0 0 20px #60a5fa, 0 0 30px #60a5fa;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+
+  @keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.89);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+  }
+
+  .box-content > * {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .box-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .box-content > *:nth-child(2) { animation-delay: 0.3s; }
+  .box-content > *:nth-child(3) { animation-delay: 0.5s; }
+  .box-content > *:nth-child(4) { animation-delay: 0.7s; }
+  .box-content > *:nth-child(5) { animation-delay: 0.9s; }
+
+  /* Animations */
+  @keyframes gamePulse {
+    0%, 100% {
+        box-shadow: 0 0 25px rgba(43, 46, 74, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 35px rgba(43, 46, 74, 0.5);
+    }
+  }
+
+  @keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px #2b2e4a,
+                     2px 2px 0px #2b2e4a;
+    }
+    50% {
+        text-shadow: 0 0 20px #2b2e4a,
+                     2px 2px 0px #2b2e4a;
+    }
+  }
+
+  @keyframes patternMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 60px 60px;
+    }
+  }
+
+  @keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+  }
+
+  /* Game-style scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1a1c2c;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ff3864;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff5678;
   }
 </style>
   </head>
@@ -212,34 +576,9 @@
                   <img src="https://classroomjq.github.io/retro-bowl-college/logo.png" width="100" height="100" alt="Retro Bowl College">
                 </a>
               </div>
-              <div class="game-item">
-                <a href="./game/bomb-it.html" title="Bomb It unblocked games">
-                  <h3 class="recommend-title">Bomb It</h3>
-                  <img src="https://slope-game.github.io/bomb-it/logo.png" width="100" height="100" alt="Bomb It">
-                </a>
-              </div>
-              <div class="game-item">
-                <a href="./game/bomb-it-2.html" title="Bomb It 2 unblocked games">
-                  <h3 class="recommend-title">Bomb It 2</h3>
-                  <img src="https://slope-game.github.io/bomb-it-2/logo.png" width="100" height="100" alt="Bomb It 2">
-                </a>
-              </div>
-              <div class="game-item">
-                <a href="./game/bomb-it-3.html" title="Bomb It 3 unblocked games">
-                  <h3 class="recommend-title">Bomb It</h3>
-                  <img src="https://slope-game.github.io/bomb-it-3/logo.png" width="100" height="100" alt="Bomb It">
-                </a>
-              </div>
-              <div class="game-item">
-                <a href="./game/bomb-it-7.html" title="Bomb It 7 unblocked games">
-                  <h3 class="recommend-title">Bomb It 7</h3>
-                  <img src="https://bitlifeonline.github.io/bomb-it-7/logo.png" width="100" height="100" alt="Retro Bowl College">
-                </a>
-              </div>
               </div>
             </div>
             <section class="box-games box-categories">
-              <h2 class="box-games-title">Popular Categories</h2>
               <div class="list-categories-home">
                 <a href="./category/stickman.html" class="tag-card" title="Stickman">
                   <span>Stickman</span>
@@ -257,45 +596,48 @@
                   <span>Vex</span>
                   <img src="./img/vex catelogy.png" width="64" height="64" alt="Vex">
                 </a>
-                <a href="./category/fireboy-watergirl.html" class="tag-card" title="FireBoy &amp; WaterGirl">
-                  <span>FireBoy &amp; WaterGirl</span>
-                  <img src="./img/fireboy-watergirl.png" width="64" height="64" alt="FireBoy &amp; WaterGirl">
-                </a>
-                <a href="./category/bombit.html" class="tag-card" title="Bomb It">
-                  <span>Bomb It</span>
-                  <img src="./images/bomb.png" width="64" height="64" alt="Bomb It">
-                </a>
-                <a href="./category/fnaf.html" class="tag-card" title="fnaf">
-                  <span>Fnaf</span>
-                  <img src="./images/Fnaf.png" width="64" height="64" alt="Fnaf">
-                </a>
               </div>
             </section>
             <div class="game-desc">
               <div class="game-desc-left">
                 <div class="box-content">
-                  <h1> <span style="font-weight: bold;">"Evo Wars"</span> - Experience Intense Combat!</h1>
+                  <h1 class="game-title">"Evo Wars" - Experience Intense Combat!</h1>
 
-                  <p>Are you ready to dive into the thrilling world of <span style="font-weight: bold;">Evo Wars</span>? This captivating online game promises an adrenaline-pumping experience like no other.</p>
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/WQveP0vEQ5I" frameborder="0" allowfullscreen></iframe>
-                  
-                  <p>In <span style="font-weight: bold;">Evo Wars</span>, you'll embark on an epic journey of survival and evolution. Starting as a humble creature, your goal is to evolve into a powerful warrior by defeating opponents and conquering challenges along the way.</p>
-                  
-                  <p>With its simple yet addictive gameplay, <span style="font-weight: bold;">Evo Wars</span> keeps you hooked for hours on end. Engage in fierce battles, outwit your enemies, and evolve into the ultimate champion.</p>
-                  
-                  <p>Featuring vibrant graphics and immersive sound effects, <span style="font-weight: bold;">Evo Wars</span> delivers an exhilarating gaming experience that will leave you craving for more.</p>
-                  
-                  <p>Join the millions of players worldwide and experience the excitement of <span style="font-weight: bold;">Evo Wars</span> today!</p> 
-                  <h2>Realated Keywords</h2>             
-                  <p>Evowars, Evowars Unblocked, Evo wars io, Evo wars, Evo wars io Unblocked</p>
-                  <h2>Games you might like</h2>
-                  <li><a href="https://evowars.github.io/game/awesome-tanks.html" target="_blank">Awesome Tanks</a></li>
-                  <h2>Realated Keywords</h2>
-                  <p>Evowars, evowars unblocked</p>
+                  <p class="highlight-text">Are you ready to dive into the thrilling world of <span style="color: #60a5fa; font-weight: bold; font-size: 1.1em;">Evo Wars</span>? This captivating online game promises an adrenaline-pumping experience like no other.</p>
+
+                  <div class="game-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/WQveP0vEQ5I" frameborder="0" allowfullscreen></iframe>
+                  </div>
+
+                  <p class="highlight-text">In <span style="color: #60a5fa; font-weight: bold; font-size: 1.1em;">Evo Wars</span>, you'll embark on an epic journey of survival and evolution. Starting as a humble creature, your goal is to evolve into a powerful warrior by defeating opponents and conquering challenges along the way.</p>
+
+                  <p class="highlight-text">With its simple yet addictive gameplay, <span style="color: #60a5fa; font-weight: bold; font-size: 1.1em;">Evo Wars</span> keeps you hooked for hours on end. Engage in fierce battles, outwit your enemies, and evolve into the ultimate champion.</p>
+
+                  <p class="highlight-text">Featuring vibrant graphics and immersive sound effects, <span style="color: #60a5fa; font-weight: bold; font-size: 1.1em;">Evo Wars</span> delivers an exhilarating gaming experience that will leave you craving for more.</p>
+
+                  <p class="highlight-text">Join the millions of players worldwide and experience the excitement of <span style="color: #60a5fa; font-weight: bold; font-size: 1.1em;">Evo Wars</span> today!</p>
+
+                  <div class="info-box" style="margin-top: 2rem;">
+                    <h2>Related Keywords</h2>
+                    <div class="tags">
+                      <span class="tag">Evowars</span>
+                      <span class="tag">Evowars Unblocked</span>
+                      <span class="tag">Evo wars io</span>
+                      <span class="tag">Evo wars</span>
+                      <span class="tag">Evo wars io Unblocked</span>
+                    </div>
+                  </div>
+
+                  <div class="info-box" style="margin-top: 2rem;">
+                    <h2>Games you might like</h2>
+                    <div class="similar-games">
+                      <a href="https://evowars.github.io/game/awesome-tanks.html" target="_blank">Awesome Tanks</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-              </div>
+          </div>
         </div>
       </div>
       <footer class="footer section">
@@ -323,6 +665,35 @@
         </a>
       </div>
       <div id="popup"></div>
+    </div>
+    <div style="position: fixed; top: 50%; transform: translateY(-50%); display: flex; justify-content: space-between; width: 100%; pointer-events: none; z-index: 999;">
+        <!-- Quảng cáo bên trái -->
+        <div style="width: 300px; height: 600px; background: #1a1c2c; border-radius: 8px; margin-left: 10px; pointer-events: auto;">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+            crossorigin="anonymous"></script>
+            <!-- Ad Left 300x600 -->
+            <ins class="adsbygoogle"
+                style="display:inline-block;width:300px;height:600px"
+                data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+                data-ad-slot="xxxxxxxxxx"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <!-- Quảng cáo bên phải -->
+        <div style="width: 300px; height: 600px; background: #1a1c2c; border-radius: 8px; margin-right: 10px; pointer-events: auto;">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+            crossorigin="anonymous"></script>
+            <!-- Ad Right 300x600 -->
+            <ins class="adsbygoogle"
+                style="display:inline-block;width:300px;height:600px"
+                data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+                data-ad-slot="xxxxxxxxxx"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
     </div>
   </body>
   <script src="./js/script.js"></script>
