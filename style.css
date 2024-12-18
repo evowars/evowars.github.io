@@ -71,10 +71,92 @@ header.fixed {
 label.logo {
   margin-top: 5px;
   float: left;
+  position: relative;
 }
 
 .logo img {
   height: 70px;
+  filter: drop-shadow(0 0 5px var(--accent-color));
+  animation: logoEffect 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes logoEffect {
+  0% {
+    filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 15px #ff0000);
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    filter: drop-shadow(0 0 10px #00ff00) drop-shadow(0 0 20px #00ff00);
+    transform: scale(1.1) rotate(2deg);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px #0000ff) drop-shadow(0 0 25px #0000ff);
+    transform: scale(1.15) rotate(-2deg);
+  }
+  75% {
+    filter: drop-shadow(0 0 10px #ff00ff) drop-shadow(0 0 20px #ff00ff);
+    transform: scale(1.1) rotate(1deg);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 15px #ff0000);
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Thêm hiệu ứng hover */
+.logo:hover img {
+  animation: logoHover 0.5s ease-in-out forwards;
+}
+
+@keyframes logoHover {
+  0% {
+    filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 15px #ff0000);
+  }
+  100% {
+    filter: drop-shadow(0 0 20px #ffffff) drop-shadow(0 0 35px #ffffff)
+      drop-shadow(0 0 50px var(--accent-color));
+    transform: scale(1.2);
+  }
+}
+
+/* Thêm hiệu ứng tia sáng */
+.logo::before,
+.logo::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translate(-50%, -50%);
+  animation: lightRay 3s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.logo::after {
+  animation-delay: 1.5s;
+}
+
+@keyframes lightRay {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
 }
 
 nav {
@@ -2030,4 +2112,247 @@ div#gameLoad.fullscreen {
   .item {
     width: calc(50% - 10px);
   }
+}
+
+/* Hiệu ứng Cyber Glow cho elements */
+.game-item,
+.box-content,
+.info-box {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #1a1c2c, #2b2e4a);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.game-item::before,
+.box-content::before,
+.info-box::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #00ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  background-size: 400%;
+  z-index: -1;
+  animation: cyberborder 20s linear infinite;
+  filter: blur(5px);
+}
+
+@keyframes cyberborder {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Hiệu ứng Matrix Rain cho hover */
+.game-item:hover::after,
+.box-content:hover::after {
+  content: "01";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 0, 0.1);
+  font-family: "Courier New", monospace;
+  font-size: 10px;
+  line-height: 8px;
+  letter-spacing: 2px;
+  color: #0f0;
+  animation: matrixRain 1s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes matrixRain {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Hiệu ứng Holographic cho images */
+img {
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+img:hover {
+  transform: perspective(1000px) rotateY(15deg);
+  filter: hue-rotate(90deg) brightness(1.2);
+}
+
+img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.3) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+  animation: holoShine 2s infinite;
+}
+
+@keyframes holoShine {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Hiệu ứng Glitch cho text */
+.game-title {
+  position: relative;
+  text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+    0.025em 0.04em 0 #fffc00;
+  animation: glitch 725ms infinite;
+}
+
+.game-title span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.game-title span:first-child {
+  animation: glitch 500ms infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  transform: translate(-0.04em, -0.03em);
+  opacity: 0.75;
+}
+
+.game-title span:last-child {
+  animation: glitch 375ms infinite;
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translate(0.04em, 0.03em);
+  opacity: 0.75;
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+      -0.05em -0.05em 0 #fffc00;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+      -0.05em -0.05em 0 #fffc00;
+  }
+  50% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+      0 -0.04em 0 #fffc00;
+  }
+  99% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+      0 -0.04em 0 #fffc00;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+      -0.04em -0.025em 0 #fffc00;
+  }
+}
+
+/* Hiệu ứng Neon Pulse cho buttons */
+.play-button {
+  position: relative;
+  color: #fff;
+  background: #2b2e4a;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  font-size: 18px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.play-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #00ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  background-size: 400%;
+  opacity: 0;
+  transition: 0.5s;
+  animation: neonPulse 20s linear infinite;
+}
+
+.play-button:hover::before {
+  opacity: 1;
+  filter: blur(20px);
+}
+
+.play-button::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: #2b2e4a;
+  border-radius: 3px;
+}
+
+@keyframes neonPulse {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Hiệu ứng 3D Transform cho cards */
+.game-item {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.game-item:hover {
+  transform: rotateX(10deg) rotateY(10deg) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
